@@ -1,12 +1,12 @@
 from modules.functions.functions import mint_nfts2_me
 
 API_URL = {
-    'base': "",
-    'blast': "",
+    'base': "https://base.blockscout.com/api/v2/addresses",
+    'blast': "https://cdn.routescan.io/api/evm/all/transactions",
     'scroll': "https://api.scrollscan.com/api",
     'zksync': "https://block-explorer-api.mainnet.zksync.io/transactions",
-    'zora': "",
-    'polygon_zkevm': "",
+    'zora': "https://cdn.routescan.io/api/evm/all/transactions",
+    'polygon_zkevm': "https://api.covalenthq.com/v1/polygon-zkevm-mainnet/address",
     'nova': "",
 }
 
