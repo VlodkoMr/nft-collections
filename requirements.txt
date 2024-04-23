@@ -1,0 +1,7 @@
+aiohttp==3.8.4
+python-dotenv==1.0.0
+termcolor==2.3.0
+web3==6.10.0
+tqdm==4.65.0
+loguru
+eth_abi
