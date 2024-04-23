@@ -1,13 +1,21 @@
 from modules.functions.functions import mint_nfts2_me
 
+API_KEYS = {
+    'blast': 'YourApiKeyToken',
+    'polygon_zkevm': 'YourApiKeyToken',
+    'nova': 'YourApiKeyToken',
+    'scroll': '',
+    'zora': '',
+}
+
 API_URL = {
     'base': "https://base.blockscout.com/api/v2/addresses",
-    'blast': "https://cdn.routescan.io/api/evm/all/transactions",
+    'blast': "https://api.blastscan.io/api",
     'scroll': "https://api.scrollscan.com/api",
     'zksync': "https://block-explorer-api.mainnet.zksync.io/transactions",
-    'zora': "https://cdn.routescan.io/api/evm/all/transactions",
-    'polygon_zkevm': "https://api.covalenthq.com/v1/polygon-zkevm-mainnet/address",
-    'nova': "",
+    'zora': "https://api.routescan.io/v2/network/mainnet/evm/7777777/etherscan/api",
+    'polygon_zkevm': "https://api-zkevm.polygonscan.com/api",
+    'nova': "https://api-nova.arbiscan.io/api",
 }
 
 ALL_FUNCTIONS = {

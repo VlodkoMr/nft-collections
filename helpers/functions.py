@@ -69,9 +69,15 @@ def api_call(url, params=None, headers=None):
             api_data = response.json()
             return api_data
         else:
-            error_text = response.json()
-            if error_text and error_text['description']:
-                cprint(error_text['description'], 'red')
+            try:
+                error_text = response.json()
+                if error_text:
+                    if error_text.get('description'):
+                        cprint(error_text['description'], 'red')
+                    else:
+                        cprint(error_text, 'red')
+            except:
+                cprint(response.text, 'red')
 
             cprint(f'Error: status code {response.status_code}, retry...', 'red')
             time.sleep(3)
@@ -82,8 +88,9 @@ def api_call(url, params=None, headers=None):
         time.sleep(3)
         return api_call(url, params, headers)
 
+
 def post_call(url, params=None, headers=None):
-    proxies=[]
+    proxies = []
 
     if USE_PROXY:
         proxies = get_random_proxy()
