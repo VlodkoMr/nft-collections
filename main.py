@@ -17,10 +17,12 @@ if __name__ == '__main__':
             cprint(f'5. Scroll', 'yellow')
             cprint(f'6. Zora', 'yellow')
             cprint(f'7. ZkSync Era', 'yellow')
-            cprint(f'8. Polygon zkEVM', 'yellow')
+            cprint(f'8. Mode', 'yellow')
+            cprint(f'9. Polygon zkEVM: mint random NFT', 'yellow')
 
             cprint(f'-------- Special NFT Collections --------', 'blue')
             cprint(f'20. Zora (0.000777 ETH) / zora.co', 'yellow')
+
 
             option = input("> ")
 
@@ -57,7 +59,12 @@ if __name__ == '__main__':
                 break
 
             elif option == '8':
-                run_unused_fn('polygon_zkevm')
+                run_unused_fn('mode')
+                break
+
+            elif option == '9':
+                # TODO: mint random NFT
+                # run_unused_fn('polygon_zkevm')
                 break
 
             elif option == '20':

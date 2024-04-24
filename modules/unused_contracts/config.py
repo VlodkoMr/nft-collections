@@ -6,6 +6,7 @@ API_KEYS = {
     'nova': 'YourApiKeyToken',
     'scroll': '',
     'zora': '',
+    'mode': '',
 }
 
 API_URL = {
@@ -16,6 +17,7 @@ API_URL = {
     'zora': "https://api.routescan.io/v2/network/mainnet/evm/7777777/etherscan/api",
     'polygon_zkevm': "https://api-zkevm.polygonscan.com/api",
     'nova': "https://api-nova.arbiscan.io/api",
+    'mode': "https://api.routescan.io/v2/network/mainnet/evm/34443/etherscan/api",
 }
 
 ALL_FUNCTIONS = {
@@ -145,6 +147,9 @@ ALL_FUNCTIONS = {
         "0x573e2C45CD6F0Ef35758fe3c3F6204A7b4dA68bC": mint_nfts2_me,
         "0x90952C9ca93b3fD47BcCBEbbDcF08f4d848AD895": mint_nfts2_me,
     },
+    'mode': {
+
+    }
 }
 
 CONTRACT_PAYMENT = {
@@ -161,4 +166,5 @@ CONTRACT_PAYMENT = {
     'base': {},
     'polygon_zkevm': {},
     'blast': {},
+    'mode': {},
 }
