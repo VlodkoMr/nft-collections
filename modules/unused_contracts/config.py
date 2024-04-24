@@ -1,4 +1,4 @@
-from modules.functions.functions import mint_nfts2_me
+from modules.functions.functions import mint_nfts2_me, mintfun_mint_nft
 
 API_KEYS = {
     'blast': 'YourApiKeyToken',
@@ -10,6 +10,7 @@ API_KEYS = {
 }
 
 API_URL = {
+    'ethereum': "",
     'base': "https://base.blockscout.com/api/v2/addresses",
     'blast': "https://api.blastscan.io/api",
     'scroll': "https://api.scrollscan.com/api",
@@ -21,6 +22,9 @@ API_URL = {
 }
 
 ALL_FUNCTIONS = {
+    "ethereum": {
+        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": mintfun_mint_nft
+    },
     'base': {
         "0x4c24eAa13e120E8195D58DA3eBA0D3C87bfDf1a9": mint_nfts2_me,
         "0xFC589B78C8506A5D77BEC37149de385272A21Eba": mint_nfts2_me,
@@ -153,6 +157,7 @@ ALL_FUNCTIONS = {
 }
 
 CONTRACT_PAYMENT = {
+    "ethereum": {},
     'scroll': {},
     'zksync': {
         "0x6BCa9A9CeFF34C36f8694cf1E75eA80b1fe8445d": 0.0001,
@@ -167,4 +172,10 @@ CONTRACT_PAYMENT = {
     'polygon_zkevm': {},
     'blast': {},
     'mode': {},
+}
+
+CONTRACT_DATA = {
+    "ethereum": {
+        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000010021fb3f"
+    },
 }

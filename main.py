@@ -10,7 +10,7 @@ if __name__ == '__main__':
             cprint(f'0. Exit', 'yellow')
             cprint(f'1. Check Balances', 'yellow')
 
-            cprint(f'-------- Unused NFT contract --------', 'blue')
+            cprint(f'-------- Unused NFT Contract --------', 'blue')
             cprint(f'2. Arbitrum Nova', 'yellow')
             cprint(f'3. Base', 'yellow')
             cprint(f'4. Blast', 'yellow')
@@ -19,9 +19,11 @@ if __name__ == '__main__':
             cprint(f'7. ZkSync Era', 'yellow')
             cprint(f'8. Mode', 'yellow')
             cprint(f'9. Polygon zkEVM: mint random NFT', 'yellow')
+            cprint(f'10. Ethereum', 'yellow')
 
             cprint(f'-------- Special NFT Collections --------', 'blue')
-            cprint(f'20. Zora (0.000777 ETH) / zora.co', 'yellow')
+            cprint(f'20. Zora official NFTs / zora.co', 'yellow')
+
 
 
             option = input("> ")
@@ -65,6 +67,10 @@ if __name__ == '__main__':
             elif option == '9':
                 # TODO: mint random NFT
                 # run_unused_fn('polygon_zkevm')
+                break
+
+            elif option == '10':
+                run_unused_fn('ethereum')
                 break
 
             elif option == '20':
