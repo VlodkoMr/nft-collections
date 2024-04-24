@@ -11,14 +11,15 @@ def interface_check_balance():
     contract_address = print_input_contract_address()
     web3 = Web3(Web3.HTTPProvider(CHAINS[network]['rpc']))
 
-    cprint("/-- Run check balance -->", "green")
+    cprint("/-- Check balances & transactions -->", "green")
 
     for private_key in get_private_keys():
         wallet_address = web3.eth.account.from_key(private_key['private_key']).address
 
         balance = get_token_balance(web3, wallet_address, contract_address, True)
         symbol = get_token_symbol(web3, network, contract_address)
+        nonce = web3.eth.get_transaction_count(wallet_address)
 
-        cprint(f'Wallet [{private_key["index"]+1}]{wallet_address}', 'green')
-        cprint(f'Balance: {balance} {symbol}', 'green')
+        cprint(f'Wallet [{private_key["index"] + 1}] {wallet_address}', 'green')
+        cprint(f'Balance: {balance} {symbol} | {nonce + 1} transactions', 'green')
         cprint(f'---', 'green')

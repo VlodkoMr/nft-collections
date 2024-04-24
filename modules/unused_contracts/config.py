@@ -1,16 +1,17 @@
-from modules.functions.functions import mint_nfts2_me, mintfun_mint_nft
+from modules.nft.functions import mint_nfts2_me, mintfun_mint_nft
 
 API_KEYS = {
-    'blast': 'YourApiKeyToken',
-    'polygon_zkevm': 'YourApiKeyToken',
-    'nova': 'YourApiKeyToken',
+    'blast': '',
+    'polygon_zkevm': '',
+    'nova': '',
     'scroll': '',
     'zora': '',
     'mode': '',
+    'degen': '',
 }
 
 API_URL = {
-    'ethereum': "",
+    'ethereum': "https://api.routescan.io/v2/network/mainnet/evm/1/etherscan/api",
     'base': "https://base.blockscout.com/api/v2/addresses",
     'blast': "https://api.blastscan.io/api",
     'scroll': "https://api.scrollscan.com/api",
@@ -19,6 +20,7 @@ API_URL = {
     'polygon_zkevm': "https://api-zkevm.polygonscan.com/api",
     'nova': "https://api-nova.arbiscan.io/api",
     'mode': "https://api.routescan.io/v2/network/mainnet/evm/34443/etherscan/api",
+    'degen': "https://explorer.degen.tips/api/v2/addresses/",
 }
 
 ALL_FUNCTIONS = {
@@ -42,6 +44,9 @@ ALL_FUNCTIONS = {
         "0x88AE9924Ce5cE5Ec7e0671aF50A0e2D87DEA1cf5": mint_nfts2_me,
         "0x68f07C2447e3Fb076B0C6D7f8CaA0E321F9E133A": mint_nfts2_me,
         "0xB4631718F89FE9bf4f3F7185daE9E5b75Caf4dDb": mint_nfts2_me,
+
+        # Time limited collections
+        "0xa90caea17aa8b3140b229113a3c154a8363f2035": mintfun_mint_nft,
     },
     'blast': {
         "0xa89EcCBB9B231DC245646006C1da81600Ef10dD9": mint_nfts2_me,
@@ -114,6 +119,10 @@ ALL_FUNCTIONS = {
         "0xCdFa7170611C29ab83fa7A6A634e54e8B8CD8cD7": mint_nfts2_me,
         "0x4ecD695122618f1DC86D621a6982C538661cF899": mint_nfts2_me,
         "0xA90fBA9462dcD463dF6571ac0bdc4e7591DA4AF7": mint_nfts2_me,
+
+        # Time limited collections
+        "0x84ce2c91ce73b6818c3ca171cfc23896dce617b1": mintfun_mint_nft,
+        "0x23ed2158e33f38dcaab363176faf55426e04be4a": mintfun_mint_nft,
     },
     'polygon_zkevm': {
         "0x4d14D1d64F665B87c0152D56168A2f886bA7E454": mint_nfts2_me,
@@ -153,6 +162,9 @@ ALL_FUNCTIONS = {
     },
     'mode': {
 
+    },
+    'degen': {
+        "0xdDbe579e2b4196f2f5291Eb4Bf2f46DaD9bBf496": mint_nfts2_me,
     }
 }
 
@@ -168,14 +180,30 @@ CONTRACT_PAYMENT = {
         "0xfA12B745C41df5fb2B6Ca7c7A8634c663c694318": 0.0001,
     },
     'nova': {},
-    'base': {},
+    'base': {
+        "0xa90caea17aa8b3140b229113a3c154a8363f2035": 0,
+    },
     'polygon_zkevm': {},
     'blast': {},
     'mode': {},
+    'zora': {
+        "0x84ce2c91ce73b6818c3ca171cfc23896dce617b1": 0,
+        "0x23ed2158e33f38dcaab363176faf55426e04be4a": 0,
+    },
+    'degen': {
+        "0xdDbe579e2b4196f2f5291Eb4Bf2f46DaD9bBf496": 11,
+    },
 }
 
 CONTRACT_DATA = {
     "ethereum": {
         "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000010021fb3f"
+    },
+    'base': {
+        "0xa90caea17aa8b3140b229113a3c154a8363f2035": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000070021fb3f",
+    },
+    'zora': {
+        "0x84ce2c91ce73b6818c3ca171cfc23896dce617b1": "0x92e5e3f400000000000000000000000000000000000000000000000000000000000000090021fb3f",
+        "0x23ed2158e33f38dcaab363176faf55426e04be4a": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000070021fb3f",
     },
 }

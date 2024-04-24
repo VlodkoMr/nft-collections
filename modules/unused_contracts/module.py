@@ -1,4 +1,5 @@
 import random
+from web3 import Web3
 from config.settings import *
 from helpers.cli import get_int_in_range
 from helpers.functions import api_call
@@ -9,56 +10,56 @@ from loguru import logger
 from modules.unused_contracts.config import ALL_FUNCTIONS, API_URL, API_KEYS
 
 
-def get_api_url(chain, address):
-    if chain in ['scroll', 'zksync', 'blast', 'zora', 'nova']:
-        return API_URL[chain]
-    elif chain == 'base':
-        return f'{API_URL[chain]}/{address}/transactions'
-    elif chain == 'polygon_zkevm':
-        return f'{API_URL[chain]}/{address}/transactions_v3/'
+class ApiService:
+    def __init__(self, chain: str, address: str):
+        self.chain = chain
+        self.address = address
 
+    def get_api_url(self) -> str:
+        if self.chain in ['base', 'degen']:
+            return f'{API_URL[self.chain]}/{self.address}/transactions'
+        elif self.chain == 'polygon_zkevm':
+            return f'{API_URL[self.chain]}/{self.address}/transactions_v3/'
+        else:
+            return API_URL[self.chain]
 
-def request_params(address, chain):
-    if chain == 'zksync':
-        return {
-            'address': address,
-            'limit': 100,
-        }
-    elif chain == 'base':
-        return {
-            'filter': 'from',
-        }
-    elif chain in ['nova', 'polygon_zkevm', 'blast', 'scroll', 'zora']:
-        return {
-            'module': 'account',
-            'action': 'txlist',
-            'address': address,
-            'startblock': 0,
-            'endblock': 99999999,
-            'page': 1,
-            'offset': 200,
-            'apikey': API_KEYS[chain],
-        }
-    else:
-        return {}
+    def request_params(self) -> dict:
+        if self.chain == 'zksync':
+            return {
+                'address': self.address,
+                'limit': 100,
+            }
+        elif self.chain in ['base', 'degen']:
+            return {
+                'filter': 'from',
+            }
+        else:
+            return {
+                'module': 'account',
+                'action': 'txlist',
+                'address': self.address,
+                'startblock': 0,
+                'endblock': 99999999,
+                'page': 1,
+                'offset': 200,
+                'apikey': API_KEYS[self.chain],
+            }
 
-
-def parse_response_to(web3, response, chain) -> set:
-    result = set()
-    if chain == 'zksync':
-        for tx in response['items']:
-            if tx.get('to'):
-                result.add(web3.to_checksum_address(tx['to']))
-    elif chain == 'base':
-        for tx in response['items']:
-            if tx.get('to').get('hash'):
-                result.add(web3.to_checksum_address(tx['to']['hash']))
-    elif chain in ['blast', 'polygon_zkevm', 'nova', 'scroll', 'zora']:
-        for tx in response['result']:
-            if tx.get('to'):
-                result.add(web3.to_checksum_address(tx['to']))
-
-    return result
+    def parse_response_to(self, response) -> set:
+        result = set()
+        if self.chain == 'zksync':
+            for tx in response['items']:
+                if tx.get('to'):
+                    result.add(Web3.to_checksum_address(tx['to']))
+        elif self.chain in ['base', 'degen']:
+            for tx in response['items']:
+                if tx.get('to').get('hash'):
+                    result.add(Web3.to_checksum_address(tx['to']['hash']))
+        else:
+            for tx in response['result']:
+                if tx.get('to'):
+                    result.add(Web3.to_checksum_address(tx['to']))
+        return result
 
 
 def run_unused_fn(rpc_chain):
@@ -73,14 +74,14 @@ def run_unused_fn(rpc_chain):
         address = web3.eth.account.from_key(key['private_key']).address
         logger.info(f'Start on {address}')
 
-        api_url = get_api_url(rpc_chain, address)
+        api_service = ApiService(rpc_chain, address)
         repeats = get_int_in_range(UNUSED_REPEAT)
 
         for step in range(repeats):
             logger.info(f'Step {step + 1}/{repeats}')
 
-            tx_list = api_call(api_url, request_params(address, rpc_chain))
-            contract_addresses = parse_response_to(web3, tx_list, rpc_chain)
+            tx_list = api_call(api_service.get_api_url(), api_service.request_params())
+            contract_addresses = api_service.parse_response_to(tx_list)
 
             print('contract_addresses', contract_addresses)
 

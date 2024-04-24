@@ -8,23 +8,22 @@ if __name__ == '__main__':
         while True:
             cprint(f'Select an action:', 'yellow')
             cprint(f'0. Exit', 'yellow')
-            cprint(f'1. Check Balances', 'yellow')
+            cprint(f'1. Check balances & transactions', 'yellow')
 
-            cprint(f'-------- Unused NFT Contract --------', 'blue')
-            cprint(f'2. Arbitrum Nova', 'yellow')
-            cprint(f'3. Base', 'yellow')
-            cprint(f'4. Blast', 'yellow')
-            cprint(f'5. Scroll', 'yellow')
-            cprint(f'6. Zora', 'yellow')
-            cprint(f'7. ZkSync Era', 'yellow')
-            cprint(f'8. Mode', 'yellow')
-            cprint(f'9. Polygon zkEVM: mint random NFT', 'yellow')
-            cprint(f'10. Ethereum', 'yellow')
+            cprint(f'-------- Unused NFT Contracts --------', 'blue')
+            cprint(f'2. Arbitrum Nova / nfts2me, mintfun', 'yellow')
+            cprint(f'3. Base / nfts2me, mintfun', 'yellow')
+            cprint(f'4. Blast / nfts2me', 'yellow')
+            cprint(f'5. Degen / nfts2me, mintfun', 'yellow')
+            cprint(f'6. Scroll / nfts2me, mintfun', 'yellow')
+            cprint(f'7. Zora / nfts2me, mintfun', 'yellow')
+            cprint(f'8. ZkSync Era / nfts2me, mintfun', 'yellow')
+            cprint(f'9. Mode / nfts2me, mintfun', 'yellow')
+            cprint(f'10. Ethereum / mintfun', 'yellow')
 
             cprint(f'-------- Special NFT Collections --------', 'blue')
             cprint(f'20. Zora official NFTs / zora.co', 'yellow')
-
-
+            cprint(f'21. Polygon zkEVM: random NFT / nfts2me', 'yellow')
 
             option = input("> ")
 
@@ -49,24 +48,23 @@ if __name__ == '__main__':
                 break
 
             elif option == '5':
-                run_unused_fn('scroll')
+                run_unused_fn('degen')
                 break
 
             elif option == '6':
-                run_unused_fn('zora')
+                run_unused_fn('scroll')
                 break
 
             elif option == '7':
-                run_unused_fn('zksync')
+                run_unused_fn('zora')
                 break
 
             elif option == '8':
-                run_unused_fn('mode')
+                run_unused_fn('zksync')
                 break
 
             elif option == '9':
-                # TODO: mint random NFT
-                # run_unused_fn('polygon_zkevm')
+                run_unused_fn('mode')
                 break
 
             elif option == '10':
@@ -75,6 +73,11 @@ if __name__ == '__main__':
 
             elif option == '20':
                 # run_script(mint_origin_nft, 'scroll', 0, [])
+                break
+
+            elif option == '21':
+                # TODO: mint random NFT
+                # run_unused_fn('polygon_zkevm')
                 break
 
             else:
