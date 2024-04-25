@@ -3,7 +3,8 @@ from config.settings import NATIVE_TOKEN_ADDRESS
 from helpers.functions import int_to_wei
 from helpers.web3_helper import add_gas_price, add_gas_limit, sign_tx, get_erc1155_abi
 
-# Mint NFTs using nfts2me
+
+# Mint NFTs using nfts2me.com
 def mint_nfts2_me(web3, private_key, amount, chain_id, contract_address):
     from modules.unused_contracts.config import CONTRACT_PAYMENT
 
@@ -31,7 +32,8 @@ def mint_nfts2_me(web3, private_key, amount, chain_id, contract_address):
     tx_hash = sign_tx(web3, contract_txn, private_key)
     return tx_hash
 
-# Mint NFTs using
+
+# Mint NFTs using ERC1155 contract
 def mint_collection(web3, private_key, amount, chain_id, contract_address):
     from modules.unused_contracts.config import CONTRACT_PAYMENT
 
@@ -71,6 +73,7 @@ def mint_collection(web3, private_key, amount, chain_id, contract_address):
 
     tx_hash = sign_tx(web3, contract_txn, private_key)
     return tx_hash
+
 
 # Mint NFTs using mint.fun
 def mintfun_mint_nft(web3, private_key, amount, chain_id, contract_address, data):

@@ -1,6 +1,7 @@
 from modules.unused_contracts.functions import mint_nfts2_me, mintfun_mint_nft, mint_collection
 
 API_KEYS = {
+    'ethereum': '',
     'blast': '',
     'polygon_zkevm': '',
     'nova': '',
@@ -25,7 +26,9 @@ API_URL = {
 
 ALL_FUNCTIONS = {
     "ethereum": {
-        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": mintfun_mint_nft
+        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": mintfun_mint_nft,
+        "0x75cd3f538c091c1d514ab1ad9832f54198cacec0": mintfun_mint_nft,
+        "0x36e5913bf48ccbd361875d09c0a20a4c144da896": mintfun_mint_nft,
     },
     'base': {
         "0xbA519f9Fad8B307c040aA45AE2Ce357a1748344a": mint_collection,
@@ -44,7 +47,6 @@ ALL_FUNCTIONS = {
         "0x932264A3dc195D87F6ca3a7DFc9ab90f4ecBD99b": mint_collection,
         "0xdBb6a1923d704560CCD0095E22cE5681551AE2c7": mint_collection,
         "0xc4d965676Ff9a780Fc3888ad454631E36A153f0E": mint_collection,
-
         # Time limited collections
         "0xa90caea17aa8b3140b229113a3c154a8363f2035": mintfun_mint_nft,
     },
@@ -105,7 +107,6 @@ ALL_FUNCTIONS = {
         "0x588379E9711Ae3470f3895A61F1f3667d1D32661": mint_collection,
         "0xf5D9C2602c1241e47198C7957d5ba489d6308Eaa": mint_collection,
         "0xcef70c492216bc0DFa75Aa22675161Ae1C60FC36": mint_collection,
-
         # Time limited collections
         "0x84ce2c91ce73b6818c3ca171cfc23896dce617b1": mintfun_mint_nft,
         "0x23ed2158e33f38dcaab363176faf55426e04be4a": mintfun_mint_nft,
@@ -168,7 +169,11 @@ ALL_FUNCTIONS = {
 }
 
 CONTRACT_PAYMENT = {
-    "ethereum": {},
+    "ethereum": {
+        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": 0,
+        "0x75cd3f538c091c1d514ab1ad9832f54198cacec0": 0,
+        "0x36e5913bf48ccbd361875d09c0a20a4c144da896": 0,
+    },
     'scroll': {},
     'zksync': {},
     'nova': {
@@ -216,7 +221,9 @@ CONTRACT_PAYMENT = {
 
 CONTRACT_DATA = {
     "ethereum": {
-        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000010021fb3f"
+        "0xf639b4ebb77df1ed4b5014c244f60e72b8adb29b": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000010021fb3f",
+        "0x75cd3f538c091c1d514ab1ad9832f54198cacec0": "0x1a4d3535000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000dd90021fb3f",
+        "0x36e5913bf48ccbd361875d09c0a20a4c144da896": "0x6ba4c1380000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000019ab0021fb3f",
     },
     'base': {
         "0xa90caea17aa8b3140b229113a3c154a8363f2035": "0xa0712d6800000000000000000000000000000000000000000000000000000000000000070021fb3f",
