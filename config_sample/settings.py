@@ -226,6 +226,24 @@ CHAINS = {
         'token': 'CANTO',
         'chain_id': 7700
     },
+    'degen': {
+        'rpc': 'https://rpc.degen.tips',
+        'scan': 'https://explorer.degen.tips/tx',
+        'token': 'DEGEN',
+        'chain_id': 666666666
+    },
+    'mode': {
+        'rpc': 'https://mainnet.mode.network',
+        'scan': 'https://modescan.io/tx',
+        'token': 'ETH',
+        'chain_id': 4443
+    },
+    'blast': {
+        'rpc': 'https://rpc.blastblockchain.com',
+        'scan': 'https://blastexplorer.io/tx',
+        'token': 'ETH',
+        'chain_id': 238
+    },
 }
 
 

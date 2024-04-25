@@ -225,6 +225,12 @@ def get_erc20_abi():
     return erc20_abi
 
 
+def get_erc1155_abi():
+    with open("config/abi/erc1155.json", "r") as file:
+        abi = json.load(file)
+    return abi
+
+
 def get_gas():
     web3 = Web3(Web3.HTTPProvider(CHAINS['ethereum']['rpc']))
     gas_price = web3.eth.gas_price

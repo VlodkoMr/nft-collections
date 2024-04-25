@@ -2,7 +2,8 @@ import random
 from web3 import Web3
 from config.settings import *
 from helpers.cli import get_int_in_range
-from helpers.functions import api_call
+from helpers.factory import run_script
+from helpers.functions import api_call, sleeping
 from helpers.settings_helper import get_private_keys
 from helpers.web3_helper import get_web3
 from loguru import logger
@@ -83,31 +84,29 @@ def run_unused_fn(rpc_chain):
             tx_list = api_call(api_service.get_api_url(), api_service.request_params())
             contract_addresses = api_service.parse_response_to(tx_list)
 
-            print('contract_addresses', contract_addresses)
+            filtered_contracts = [
+                (value, key) for key, value in all_contracts.items() if
+                web3.to_checksum_address(key) not in contract_addresses
+            ]
 
-            # filtered_contracts = [
-            #     (value, key) for key, value in all_contracts.items() if
-            #     web3.to_checksum_address(key) not in contract_addresses
-            # ]
+            if len(filtered_contracts):
+                random_choose = random.choice(filtered_contracts)
+                random_fn = random_choose[0]
 
-            # if len(filtered_contracts):
-            #     random_choose = random.choice(filtered_contracts)
-            #     random_fn = random_choose[0]
-            #
-            #     if isinstance(random_fn, list):
-            #         # for Lending
-            #         logger.info(f'Random chosen  {random_fn[0].__name__}, left {len(filtered_contracts)}')
-            #
-            #         run_script(random_fn[0], rpc_chain, '', [], key)
-            #         sleeping(30, 60)
-            #         run_script(random_fn[1], rpc_chain, '', [], key)
-            #
-            #     else:
-            #         f_name = random_fn.__name__
-            #         logger.info(f'Random chosen {f_name}, left {len(filtered_contracts)}')
-            #
-            #         params = [rpc_chain, random_choose[1]]
-            #         run_script(random_fn, rpc_chain, '', params, key)
-            # else:
-            #     logger.info(f'No unused contracts found for   {address}')
-            #     break
+                if isinstance(random_fn, list):
+                    # for Lending
+                    logger.info(f'Random chosen {random_fn[0].__name__}, left {len(filtered_contracts)}')
+
+                    run_script(random_fn[0], rpc_chain, '', [], key)
+                    sleeping(30, 60)
+                    run_script(random_fn[1], rpc_chain, '', [], key)
+
+                else:
+                    f_name = random_fn.__name__
+                    logger.info(f'Random chosen {f_name}, left {len(filtered_contracts)}')
+
+                    params = [rpc_chain, random_choose[1]]
+                    run_script(random_fn, rpc_chain, '', params, key)
+            else:
+                logger.info(f'No unused contracts found for   {address}')
+                break
