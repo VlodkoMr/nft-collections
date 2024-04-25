@@ -169,12 +169,8 @@ ALL_FUNCTIONS = {
 
 CONTRACT_PAYMENT = {
     "ethereum": {},
-    'scroll': {
-
-    },
-    'zksync': {
-
-    },
+    'scroll': {},
+    'zksync': {},
     'nova': {
         "0x89CdDB9F8e751B90b21604aE759c4C798a07aa12": 0.0002,
         "0x6DB8F6f6ca292e50e0527F027f95a22dD2bBd19e": 0.0002,
@@ -198,15 +194,23 @@ CONTRACT_PAYMENT = {
     },
     'polygon_zkevm': {},
     'blast': {},
-    'mode': {
-
-    },
+    'mode': {},
     'zora': {
         "0x84ce2c91ce73b6818c3ca171cfc23896dce617b1": 0,
         "0x23ed2158e33f38dcaab363176faf55426e04be4a": 0,
     },
     'degen': {
         "0xdDbe579e2b4196f2f5291Eb4Bf2f46DaD9bBf496": 11,
+        "0x2cC1b711246254E3D6F8064166a92eA5b9Bb7c5a": 11,
+        "0x0C90eB70757A52119Cb98c64828aAD9e103382C2": 11,
+        "0xe7477BD5Be26158AD7349cdB06Fd52093a037502": 11,
+        "0x91541196E1d782ADB9e73727df1E719C01f25A2b": 11,
+        "0x4D27153Fc55e208F873C16A72d1E667011cF6aD6": 11,
+        "0x4456DA074f4318a24d80Af7a3713242aa59C63cE": 11,
+        "0x8EA0E65CfaBB42bac8449Abf9fa8031d32FE2AAA": 11,
+        "0xe6727dd89BFF7C40B63e8c8D634Ef3cC77eD55D4": 11,
+        "0xc29a6eE829Ba91c488909e999F6a614E6fdaa884": 11,
+        "0x7d00e4C4Ec7eb4E3f9ed07A0465CeC0AFaBF08F8": 11,
     },
 }
 
