@@ -1,5 +1,10 @@
 # NFT Contracts
 
+Increasing activity in various blockchains - cheap NFT transactions.
+Analyze existing contracts, mint NFT, claim limited collections and bridge tokens.
+
+For mint NFT on Ethereum you can set MAX_GWEI and wait for the transaction to be confirmed.
+
 ### Requirements:
 
 - python 3.10+
