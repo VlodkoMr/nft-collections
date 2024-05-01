@@ -1,10 +1,12 @@
 from termcolor import cprint
+
 from modules.balance.module import interface_check_balance
 from modules.relay_bridge.module import interface_relay_bridge
 from modules.unused_contracts.config import UNUSED_CONTRACTS
 from modules.unused_contracts.functions import mint_random_nft
 
 from modules.unused_contracts.module import run_unused_fn
+from modules.zora_official.module import zora_official_interface
 
 if __name__ == '__main__':
 	try:
@@ -83,7 +85,7 @@ if __name__ == '__main__':
 				break
 
 			elif option == '20':
-				# run_script(mint_origin_nft, 'scroll', 0, [])
+				zora_official_interface()
 				break
 
 			elif option == '21':
