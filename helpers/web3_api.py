@@ -56,23 +56,20 @@ class ApiService:
                     result.add(Web3.to_checksum_address(tx['to']))
         return result
 
-    def parse_response_timestamp(self, response) -> set:
-        result = set()
-
+    def parse_response_timestamp(self, response) -> int:
         if self.chain == 'zksync':
             if response.get('items') and len(response['items']) > 0:
                 item = response['items'][0]
                 dt = datetime.fromisoformat(item['receivedAt'].rstrip('Z')).replace(tzinfo=timezone.utc)
-                result.add(dt.timestamp())
+                return int(dt.timestamp())
 
         elif self.chain in ['base', 'degen']:
             if response.get('items') and len(response['items']) > 0:
                 item = response['items'][0]
                 dt = datetime.fromisoformat(item['timestamp'].rstrip('Z')).replace(tzinfo=timezone.utc)
-                result.add(dt.timestamp())
+                return int(dt.timestamp())
 
         else:
             if response.get('result') and len(response['result']) > 0:
                 item = response['result'][0]
-                result.add(int(item['timestamp']))
-        return result
+                return int(item['timeStamp'])
