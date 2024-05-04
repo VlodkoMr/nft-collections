@@ -11,7 +11,6 @@ def zora_official_interface():
 			cprint(f'0. Exit', 'yellow')
 			cprint(f'1. Mint Random available NFT', 'yellow')
 			cprint(f'2. Mint "Welcome to Zora" (Coinbase owner) | deadline: 08.05.24', 'yellow')
-			cprint(f'3. Mint "v2 Launch Week" (Friend.tech owner) | deadline: 02.05.24', 'yellow')
 			cprint(f'NOTE: Price 0.000777 ETH/NFT for zora.co', 'blue')
 
 			option = input("> ")
@@ -35,14 +34,14 @@ def zora_official_interface():
 				run_script(run_zora_official, chain, "0.000777", params)
 				break
 
-			elif option == '3':
-				params = [
-					chain,
-					'0xf70da97812cb96acdf810712aa562db8dfa3dbef',
-					'0x008a32cc',
-				]
-				run_script(run_zora_official, chain, "0.000777", params)
-				break
+			# elif option == '3':
+				# params = [
+				# 	chain,
+				# 	'0xf70da97812cb96acdf810712aa562db8dfa3dbef',
+				# 	'0x008a32cc',
+				# ]
+				# run_script(run_zora_official, chain, "0.000777", params)
+				# break
 
 			else:
 				cprint(f'Wrong action. Please try again.\n', 'red')
