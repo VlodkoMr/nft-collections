@@ -115,8 +115,6 @@ def mintfun_mint_nft(web3, private_key, amount, chain_id, contract_address):
 		'chainId': web3.eth.chain_id
 	}
 
-	print('contract_txn', contract_txn)
-
 	contract_txn = add_gas_price(web3, contract_txn, chain_id)
 	contract_txn = add_gas_limit(web3, contract_txn, chain_id)
 

@@ -11,6 +11,7 @@ def zora_official_interface():
 			cprint(f'0. Exit', 'yellow')
 			cprint(f'1. Mint Random available NFT', 'yellow')
 			cprint(f'2. Mint "Welcome to Zora" (Coinbase owner) | deadline: 08.05.24', 'yellow')
+			# cprint(f'3. Mint "Farcaster: Jaguar" (Farcaster owner) | deadline: 01.06.24', 'yellow')
 			cprint(f'NOTE: Price 0.000777 ETH/NFT for zora.co', 'blue')
 
 			option = input("> ")
@@ -38,9 +39,9 @@ def zora_official_interface():
 				# params = [
 				# 	chain,
 				# 	'0xf70da97812cb96acdf810712aa562db8dfa3dbef',
-				# 	'0x008a32cc',
+				# 	'0x00c32222',
 				# ]
-				# run_script(run_zora_official, chain, "0.000777", params)
+				# run_script(run_zora_official, chain, "0.000812244552809031", params)
 				# break
 
 			else:
