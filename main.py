@@ -10,109 +10,114 @@ from modules.unused_contracts.module import run_unused_fn
 from modules.zora_official.module import zora_official_interface
 
 if __name__ == '__main__':
-    try:
-        while True:
-            cprint(f'Select an action:', 'yellow')
-            cprint(f'0. Exit', 'yellow')
-            cprint(f'1. Check balances', 'yellow')
-            cprint(f'2. Filter wallets by last TX Date', 'yellow')
-            cprint(f'3. Filter wallets by TX Count', 'yellow')
+	try:
+		while True:
+			cprint(f'Select an action:', 'yellow')
+			cprint(f'0. Exit', 'yellow')
+			cprint(f'1. Check balances', 'yellow')
+			cprint(f'2. Filter wallets by last TX Date', 'yellow')
+			cprint(f'3. Filter wallets by TX Count', 'yellow')
 
-            cprint(f'-------- Unused NFT Contracts --------', 'blue')
-            cprint(f'5. Arbitrum Nova', 'yellow')
-            cprint(f'6. Base', 'yellow')
-            cprint(f'7. Blast', 'yellow')
-            cprint(f'8. Degen', 'yellow')
-            cprint(f'9. Scroll', 'yellow')
-            cprint(f'10. Ethereum', 'yellow')
-            cprint(f'11. Zora', 'yellow')
-            cprint(f'12. ZkSync Era', 'yellow')
-            cprint(f'13. Mode', 'yellow')
-            cprint(f'14. Polygon zkEVM: random NFT', 'yellow')
+			cprint(f'-------- Unused NFT Contracts --------', 'blue')
+			cprint(f'5. Arbitrum Nova', 'yellow')
+			cprint(f'6. Base', 'yellow')
+			cprint(f'7. Blast', 'yellow')
+			cprint(f'8. Degen', 'yellow')
+			cprint(f'9. Scroll', 'yellow')
+			cprint(f'10. Ethereum', 'yellow')
+			cprint(f'11. Zora', 'yellow')
+			cprint(f'12. ZkSync Era', 'yellow')
+			cprint(f'13. Mode', 'yellow')
+			cprint(f'14. Polygon zkEVM (random NFT)', 'yellow')
+			cprint(f'15. Taiko', 'yellow')
 
-            cprint(f'-------- Special NFT Collections --------', 'blue')
-            cprint(f'20. Zora official NFTs / zora.co', 'yellow')
+			cprint(f'-------- Special NFT Collections --------', 'blue')
+			cprint(f'20. Zora official NFTs / zora.co', 'yellow')
 
-            cprint(f'-------- Tokens / Bridge --------', 'blue')
-            cprint(f'30. Relay Bridge', 'yellow')
+			cprint(f'-------- Tokens / Bridge --------', 'blue')
+			cprint(f'30. Relay Bridge', 'yellow')
 
-            option = input("> ")
+			option = input("> ")
 
-            if option == '0':
-                cprint(f'Exit, bye bye.', 'green')
-                break
+			if option == '0':
+				cprint(f'Exit, bye bye.', 'green')
+				break
 
-            elif option == '1':
-                interface_check_balance()
-                break
+			elif option == '1':
+				interface_check_balance()
+				break
 
-            elif option == '2':
-                interface_last_tx()
-                break
+			elif option == '2':
+				interface_last_tx()
+				break
 
-            elif option == '3':
-                interface_tx_count()
-                break
+			elif option == '3':
+				interface_tx_count()
+				break
 
-            elif option == '5':
-                run_unused_fn('nova')
-                break
+			elif option == '5':
+				run_unused_fn('nova')
+				break
 
-            elif option == '6':
-                run_unused_fn('base')
-                break
+			elif option == '6':
+				run_unused_fn('base')
+				break
 
-            elif option == '7':
-                run_unused_fn('blast')
-                break
+			elif option == '7':
+				run_unused_fn('blast')
+				break
 
-            elif option == '8':
-                run_unused_fn('degen')
-                break
+			elif option == '8':
+				run_unused_fn('degen')
+				break
 
-            elif option == '9':
-                run_unused_fn('scroll')
-                break
+			elif option == '9':
+				run_unused_fn('scroll')
+				break
 
-            elif option == '10':
-                run_unused_fn('ethereum')
-                break
+			elif option == '10':
+				run_unused_fn('ethereum')
+				break
 
-            elif option == '11':
-                run_unused_fn('zora')
-                break
+			elif option == '11':
+				run_unused_fn('zora')
+				break
 
-            elif option == '12':
-                run_unused_fn('zksync')
-                break
+			elif option == '12':
+				run_unused_fn('zksync')
+				break
 
-            elif option == '13':
-                run_unused_fn('mode')
-                break
+			elif option == '13':
+				run_unused_fn('mode')
+				break
 
-            elif option == '14':
-                chain = 'polygon_zkevm'
-                mint_random_nft(chain, UNUSED_CONTRACTS[chain])
-                break
+			elif option == '14':
+				chain = 'polygon_zkevm'
+				mint_random_nft(chain, UNUSED_CONTRACTS[chain])
+				break
 
-            elif option == '20':
-                zora_official_interface()
-                break
+			elif option == '15':
+				run_unused_fn('taiko')
+				break
 
-            elif option == '21':
+			elif option == '20':
+				zora_official_interface()
+				break
 
-                break
+			elif option == '21':
 
-            elif option == '30':
-                interface_relay_bridge()
-                break
+				break
 
-            else:
-                cprint(f'Wrong action. Please try again.\n', 'red')
-                continue
+			elif option == '30':
+				interface_relay_bridge()
+				break
+
+			else:
+				cprint(f'Wrong action. Please try again.\n', 'red')
+				continue
 
 
 
-    except KeyboardInterrupt:
-        cprint(f' Exit, bye bye\n', 'red')
-        raise SystemExit
+	except KeyboardInterrupt:
+		cprint(f' Exit, bye bye\n', 'red')
+		raise SystemExit

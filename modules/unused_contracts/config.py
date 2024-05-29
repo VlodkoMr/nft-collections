@@ -1,4 +1,4 @@
-from modules.unused_contracts.functions import mint_nfts2_me, mintfun_mint_nft, mint_collection
+from modules.unused_contracts.functions import mint_nfts2_me, mintfun_mint_nft, mint_collection, mint_erc721
 
 API_KEYS = {
 	'ethereum': '',
@@ -9,6 +9,7 @@ API_KEYS = {
 	'zora': '',
 	'mode': '',
 	'degen': '',
+	'taiko': '',
 }
 
 API_URL = {
@@ -22,17 +23,8 @@ API_URL = {
 	'nova': "https://api-nova.arbiscan.io/api",
 	'mode': "https://api.routescan.io/v2/network/mainnet/evm/34443/etherscan/api",
 	'degen': "https://explorer.degen.tips/api/v2/addresses/",
+	'taiko': "https://api.routescan.io/v2/network/mainnet/evm/167000/etherscan/api",
 }
-
-# LIMITED_TIME_CONTRACTS = {
-# 	'base': {
-# 		"0x9d23ac7180322d2a45062a1d699f6bd6dd59b01a": mintfun_mint_nft,
-# 	},
-# 	'zora': {
-# 		"0x84ce2c91ce73b6818c3ca171cfc23896dce617b1": mintfun_mint_nft,
-# 		"0x23ed2158e33f38dcaab363176faf55426e04be4a": mintfun_mint_nft,
-# 	}
-# }
 
 UNUSED_CONTRACTS = {
 	"ethereum": {
@@ -153,6 +145,25 @@ UNUSED_CONTRACTS = {
 		"0xe6727dd89BFF7C40B63e8c8D634Ef3cC77eD55D4": mint_nfts2_me,
 		"0xc29a6eE829Ba91c488909e999F6a614E6fdaa884": mint_nfts2_me,
 		"0x7d00e4C4Ec7eb4E3f9ed07A0465CeC0AFaBF08F8": mint_nfts2_me,
+	},
+	"taiko": {
+		"0x3195e445957b4aee007aA37d190b71F195Ecc44f": mint_erc721,
+		"0xf5D45809eD0DC9dE3C27EA7c12fA4C1FF342f6D4": mint_erc721,
+		"0x369531d3eC2d4530222E6A449CcD571952deABD1": mint_erc721,
+		"0x061687e98efE186bA3ce1792FFdeD95486363edA": mint_erc721,
+		"0x59A9725F33a71212A9733314E988B108F8616a25": mint_erc721,
+		"0xE65c902F9a23620d8885d5A9AcD91dB0E1594610": mint_erc721,
+		"0xD8ed99A4e31FFc9B52Ec69BAB32F6a5411BF6805": mint_erc721,
+		"0xa0448b5Ae5f9E07e48eb04A3dcB9bEeB07928611": mint_erc721,
+		"0x7F481606B19a4df783E75726ECe7D75a3DCe02d3": mint_erc721,
+		"0x5f7303a37C9a44eE3085DEa079822e09685462B0": mint_erc721,
+		"0xfcf03c7590239846B491dFe4544b9F1F514505bA": mint_erc721,
+		"0x0D056e99363BCb3D53a42D5fA68B0D99ecd5b5Ab": mint_erc721,
+		"0xc0810c99854ba266B622B4F8E704FA47fe43cBC4": mint_erc721,
+		"0x9B861cf7A7e6167d91DaD444406890FbdC6bA5eC": mint_erc721,
+		"0x2d6e692Bd70Da44f5503857bB95478f9b701814f": mint_erc721,
+		"0x1100c7f7d31805DEdCDd64508017169dbf0C856F": mint_erc721,
+		"0xFA67142A0902e5724d887CfdD8Bc1C4Bf602Ff74": mint_erc721,
 	}
 }
 
@@ -188,6 +199,7 @@ CONTRACT_PAYMENT = {
 		"0xc29a6eE829Ba91c488909e999F6a614E6fdaa884": 11,
 		"0x7d00e4C4Ec7eb4E3f9ed07A0465CeC0AFaBF08F8": 11,
 	},
+	"taiko": {},
 }
 
 CONTRACT_DATA = {
