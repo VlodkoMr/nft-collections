@@ -1,4 +1,4 @@
-from modules.unused_contracts.functions import mint_nfts2_me, mintfun_mint_nft, mint_collection, mint_erc721
+from modules.unused_contracts.functions import mint_nfts2_me, mintfun_mint_nft, mint_collection
 
 API_KEYS = {
 	'ethereum': '',
@@ -147,23 +147,22 @@ UNUSED_CONTRACTS = {
 		"0x7d00e4C4Ec7eb4E3f9ed07A0465CeC0AFaBF08F8": mint_nfts2_me,
 	},
 	"taiko": {
-		"0x3195e445957b4aee007aA37d190b71F195Ecc44f": mint_erc721,
-		"0xf5D45809eD0DC9dE3C27EA7c12fA4C1FF342f6D4": mint_erc721,
-		"0x369531d3eC2d4530222E6A449CcD571952deABD1": mint_erc721,
-		"0x061687e98efE186bA3ce1792FFdeD95486363edA": mint_erc721,
-		"0x59A9725F33a71212A9733314E988B108F8616a25": mint_erc721,
-		"0xE65c902F9a23620d8885d5A9AcD91dB0E1594610": mint_erc721,
-		"0xD8ed99A4e31FFc9B52Ec69BAB32F6a5411BF6805": mint_erc721,
-		"0xa0448b5Ae5f9E07e48eb04A3dcB9bEeB07928611": mint_erc721,
-		"0x7F481606B19a4df783E75726ECe7D75a3DCe02d3": mint_erc721,
-		"0x5f7303a37C9a44eE3085DEa079822e09685462B0": mint_erc721,
-		"0xfcf03c7590239846B491dFe4544b9F1F514505bA": mint_erc721,
-		"0x0D056e99363BCb3D53a42D5fA68B0D99ecd5b5Ab": mint_erc721,
-		"0xc0810c99854ba266B622B4F8E704FA47fe43cBC4": mint_erc721,
-		"0x9B861cf7A7e6167d91DaD444406890FbdC6bA5eC": mint_erc721,
-		"0x2d6e692Bd70Da44f5503857bB95478f9b701814f": mint_erc721,
-		"0x1100c7f7d31805DEdCDd64508017169dbf0C856F": mint_erc721,
-		"0xFA67142A0902e5724d887CfdD8Bc1C4Bf602Ff74": mint_erc721,
+		"0xa0185eD7AA2701a9eF2736d74E9Ed1880530660A": mint_collection,
+		"0xF47fBa0D16764a7d2985816653d13750B2Cd512F": mint_collection,
+		"0x7d9B5fe514ccc4428A821903338094B90e79405C": mint_collection,
+		"0xD5e0Ecabc0347ab07dbD7A1d2ffd315f7614df8E": mint_collection,
+		"0x3CDEF6dfdBb60E67231d828b4e615900122013ce": mint_collection,
+		"0xc58f4b2a6167c5ffBB8e2dd5d90136bbF587f88a": mint_collection,
+		"0xF42C79B48f11362FcCf967dF9E3A476005C53816": mint_collection,
+		"0x4A3CC08418a43b916FfB653A4a7ffddABFf0e701": mint_collection,
+		"0xa9350d833d9F72f44972287fFd44F8CE921F7Ee2": mint_collection,
+		"0x7228307472F8880E6cF5AE595FF47C4DC668b006": mint_collection,
+		"0xd7c5288452b1C30f2DcD5d7665f894196C678887": mint_collection,
+		"0x82DaD8Aa3a778B6fB6D560166Cb01c375dEEa296": mint_collection,
+		"0x50211f92f6BE264C55ED14dD627963eAf6A9166a": mint_collection,
+		"0xB64D7010376F3e33f44689E86B851cFD547e789D": mint_collection,
+		"0x13e286255De8Dd0ABFe1F427849C390619622EEa": mint_collection,
+		"0x1Fbec2924c00fB15AD410Fc0888Ec35f9454fC3b": mint_collection,
 	}
 }
 

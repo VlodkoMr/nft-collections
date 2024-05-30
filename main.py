@@ -2,6 +2,7 @@ from termcolor import cprint
 
 from modules.balance.module import interface_check_balance
 from modules.filter_tx.module import interface_last_tx, interface_tx_count
+from modules.orbiter_bridge.module import interface_orbiter_bridge
 from modules.relay_bridge.module import interface_relay_bridge
 from modules.unused_contracts.config import UNUSED_CONTRACTS
 from modules.unused_contracts.functions import mint_random_nft
@@ -36,6 +37,7 @@ if __name__ == '__main__':
 
 			cprint(f'-------- Tokens / Bridge --------', 'blue')
 			cprint(f'30. Relay Bridge', 'yellow')
+			cprint(f'31. Orbiter Bridge', 'yellow')
 
 			option = input("> ")
 
@@ -110,6 +112,10 @@ if __name__ == '__main__':
 
 			elif option == '30':
 				interface_relay_bridge()
+				break
+
+			elif option == '31':
+				interface_orbiter_bridge()
 				break
 
 			else:
