@@ -1,4 +1,7 @@
 import decimal
+import requests
+
+from helpers.settings_helper import get_random_proxy
 from helpers.web3_helper import *
 from modules.orbiter_bridge.config import *
 from helpers.functions import int_to_wei, get_min_balance
@@ -115,3 +118,30 @@ def __get_orbiter_token_value(base_num, chain):
 	result_str = '{:.6f}'.format(result_dec.quantize(decimal.Decimal('0.000001')))
 	result_str = result_str[:-4] + orbiter_str
 	return decimal.Decimal(result_str)
+
+
+def claim_points(index, address):
+	url = 'https://api.orbiter.finance/points_system/user/card/draw'
+	params = {'address': address}
+	proxies = get_random_proxy()
+
+	try:
+		requests.get('https://api.orbiter.finance/points_system/v2/user/points', params=params, headers=None, proxies=proxies)
+		time.sleep(1)
+		requests.get('https://api.orbiter.finance/points_system/user/nfts', params=params, headers=None, proxies=proxies)
+		time.sleep(1)
+		requests.get('https://api.orbiter.finance/points_system/user/cards', params=params, headers=None, proxies=proxies)
+
+		response = requests.post(url, json=params, headers=None, proxies=proxies)
+		result = response.json()
+
+		if result["code"] == 0:
+			cprint(f'[{index + 1}] {address}: +{result["data"]["points"]} points', 'green')
+		else:
+			cprint(f'[{index + 1}] {address}: {result["message"]}', 'red')
+
+		return response
+	except Exception as e:
+		cprint(f"Error {e}, retry...", 'red')
+		time.sleep(3)
+		return claim_points(address)

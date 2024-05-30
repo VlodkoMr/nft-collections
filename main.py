@@ -1,7 +1,12 @@
 from termcolor import cprint
 
+from config.settings import CHAINS, MIN_SLEEP, MAX_SLEEP
+from helpers.functions import sleeping
+from helpers.settings_helper import get_private_keys
+from helpers.web3_helper import get_web3
 from modules.balance.module import interface_check_balance
 from modules.filter_tx.module import interface_last_tx, interface_tx_count
+from modules.orbiter_bridge.functions import claim_points
 from modules.orbiter_bridge.module import interface_orbiter_bridge
 from modules.relay_bridge.module import interface_relay_bridge
 from modules.unused_contracts.config import UNUSED_CONTRACTS
@@ -37,7 +42,8 @@ if __name__ == '__main__':
 
 			cprint(f'-------- Tokens / Bridge --------', 'blue')
 			cprint(f'30. Relay Bridge', 'yellow')
-			cprint(f'31. Orbiter Bridge', 'yellow')
+			cprint(f'31. Orbiter Bridge - ETH bridge', 'yellow')
+			cprint(f'32. Orbiter Bridge - claim points', 'yellow')
 
 			option = input("> ")
 
@@ -116,6 +122,17 @@ if __name__ == '__main__':
 
 			elif option == '31':
 				interface_orbiter_bridge()
+				break
+
+			elif option == '32':
+				prt_keys = get_private_keys()
+				web3 = get_web3(CHAINS['zksync']['rpc'])
+
+				for index, item in enumerate(prt_keys):
+					account = web3.eth.account.from_key(item['private_key'])
+					claim_points(index, account.address)
+					sleeping(MIN_SLEEP, MAX_SLEEP)
+
 				break
 
 			else:
