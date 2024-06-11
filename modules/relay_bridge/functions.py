@@ -51,10 +51,8 @@ def relay_call(web3, private_key, _amount, from_chain, to_chain):
 		tx_data = data_request(from_chain, to_chain, amount, wallet)
 
 		transaction_data = tx_data['steps'][0]['items'][0]['data']
-
-		cprint(f'/-- Transaction data: {transaction_data}', 'green')
-
 		# cprint(f'/-- Transaction data: {transaction_data}', 'green')
+
 		gas = transaction_data.get('gas', 0)
 
 		contract_txn = {
@@ -63,7 +61,7 @@ def relay_call(web3, private_key, _amount, from_chain, to_chain):
 			'value': int(transaction_data['value']),
 			'gasPrice': 0,
 			'gas': gas,
-			'to': Web3.to_checksum_address(transaction_data['to']),
+			'to': web3.to_checksum_address(transaction_data['to']),
 			'data': transaction_data['data'],
 			'chainId': transaction_data['chainId'],
 		}

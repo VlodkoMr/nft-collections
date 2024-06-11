@@ -9,6 +9,7 @@ from modules.filter_tx.module import interface_last_tx, interface_tx_count
 from modules.orbiter_bridge.functions import claim_points
 from modules.orbiter_bridge.module import interface_orbiter_bridge
 from modules.relay_bridge.module import interface_relay_bridge
+from modules.stargate_v2_bridge.module import interface_stargate_bridge
 from modules.unused_contracts.config import UNUSED_CONTRACTS
 from modules.unused_contracts.functions import mint_random_nft
 
@@ -44,6 +45,7 @@ if __name__ == '__main__':
 			cprint(f'30. Relay Bridge', 'yellow')
 			cprint(f'31. Orbiter Bridge - ETH bridge', 'yellow')
 			cprint(f'32. Orbiter Bridge - claim points', 'yellow')
+			cprint(f'33. Stargate v2 ETH Bridge', 'yellow')
 
 			option = input("> ")
 
@@ -132,7 +134,10 @@ if __name__ == '__main__':
 					account = web3.eth.account.from_key(item['private_key'])
 					claim_points(index, account.address)
 					sleeping(MIN_SLEEP, MAX_SLEEP)
+				break
 
+			elif option == '33':
+				interface_stargate_bridge()
 				break
 
 			else:
