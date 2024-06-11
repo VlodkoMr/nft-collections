@@ -52,6 +52,8 @@ def relay_call(web3, private_key, _amount, from_chain, to_chain):
 
 		transaction_data = tx_data['steps'][0]['items'][0]['data']
 
+		cprint(f'/-- Transaction data: {transaction_data}', 'green')
+
 		# cprint(f'/-- Transaction data: {transaction_data}', 'green')
 		gas = transaction_data.get('gas', 0)
 

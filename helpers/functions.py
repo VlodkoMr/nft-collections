@@ -104,8 +104,11 @@ def post_call(url, params=None, headers=None):
 			return api_data
 		else:
 			error_text = response.json()
-			if error_text and error_text['description']:
-				cprint(error_text['description'], 'red')
+			if error_text:
+				if error_text.get('description'):
+					cprint(error_text.get('description'), 'red')
+				else:
+					cprint(error_text, 'red')
 
 			cprint(f'Error: status code {response.status_code}, retry...', 'red')
 			time.sleep(3)
