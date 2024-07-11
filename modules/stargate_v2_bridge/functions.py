@@ -19,7 +19,7 @@ def stargate_v2_eth_bridge(web3, private_key, _amount, from_chain, to_chain):
 		balance = get_token_balance(web3, wallet_address, '')
 		amount = balance - int_to_wei(get_min_balance(from_chain), 18)
 
-	if amount:
+	if amount > int_to_wei(STARGATE_V2_MIN_TRANSFER, 18):
 		dst_chain_id = STARGATE_V2_ENDPOINT_IDS[to_chain]
 		fees = fee_contract.functions.quoteRideBus(
 			dst_chain_id, False
@@ -59,7 +59,7 @@ def stargate_v2_eth_bridge(web3, private_key, _amount, from_chain, to_chain):
 
 		return sign_tx(web3, contract_txn, private_key)
 	else:
-		cprint(f'No token balance to bridge, skip.', 'red')
+		# cprint(f'No token balance to bridge, skip.', 'red')
 		raise Exception(f'{from_chain} No token balance to bridge')
 
 

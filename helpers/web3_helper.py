@@ -244,7 +244,7 @@ def wait_gas():
 		current_gas = get_gas()
 
 		if current_gas > MAX_GWEI:
-			logger.info(f'Сurrent_gas : {current_gas} > {MAX_GWEI}')
+			logger.info(f'Current_gas : {current_gas} > {MAX_GWEI}')
 			time.sleep(100)
 		else:
 			break
