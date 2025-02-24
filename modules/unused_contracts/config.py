@@ -10,6 +10,7 @@ API_KEYS = {
 	'mode': '',
 	'degen': '',
 	'taiko': '',
+	'monad': '',
 }
 
 API_URL = {
@@ -24,6 +25,7 @@ API_URL = {
 	'mode': "https://api.routescan.io/v2/network/mainnet/evm/34443/etherscan/api",
 	'degen': "https://explorer.degen.tips/api/v2/addresses/",
 	'taiko': "https://api.routescan.io/v2/network/mainnet/evm/167000/etherscan/api",
+	'monad': "https://monad-api.blockvision.org/testnet/api",
 }
 
 UNUSED_CONTRACTS = {
@@ -165,7 +167,8 @@ UNUSED_CONTRACTS = {
 		"0xB64D7010376F3e33f44689E86B851cFD547e789D": mint_collection,
 		"0x13e286255De8Dd0ABFe1F427849C390619622EEa": mint_collection,
 		"0x1Fbec2924c00fB15AD410Fc0888Ec35f9454fC3b": mint_collection,
-	}
+	},
+	"monad": {}
 }
 
 CONTRACT_PAYMENT = {
@@ -203,6 +206,7 @@ CONTRACT_PAYMENT = {
 		"0x7d00e4C4Ec7eb4E3f9ed07A0465CeC0AFaBF08F8": 11,
 	},
 	"taiko": {},
+	"monad": {},
 }
 
 CONTRACT_DATA = {

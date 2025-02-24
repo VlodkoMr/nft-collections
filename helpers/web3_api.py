@@ -13,11 +13,13 @@ class ApiService:
             return f'{API_URL[self.chain]}/{self.address}/transactions'
         elif self.chain == 'polygon_zkevm':
             return f'{API_URL[self.chain]}/{self.address}/transactions_v3/'
+        elif self.chain == 'monad':
+            return f'{API_URL[self.chain]}/account/transactions'
         else:
             return API_URL[self.chain]
 
     def request_params(self) -> dict:
-        if self.chain == 'zksync':
+        if self.chain == 'zksync' or self.chain == 'monad':
             return {
                 'address': self.address,
                 'limit': 100,
@@ -68,6 +70,11 @@ class ApiService:
                 item = response['items'][0]
                 dt = datetime.fromisoformat(item['timestamp'].rstrip('Z')).replace(tzinfo=timezone.utc)
                 return int(dt.timestamp())
+
+        elif self.chain in ['monad']:
+            if response.get('result') and len(response['result']) > 0:
+                item = response['result']['data'][0]
+                return int(item['timestamp']/1000)
 
         else:
             if response.get('result') and len(response['result']) > 0:
